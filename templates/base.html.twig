@@ -12,7 +12,9 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
 </head>
 <body>
 <nav class="navbar navbar-inverse">
