@@ -21,4 +21,18 @@ class StaffController extends AbstractController
             'staff' => $staff
         ]);
     }
+    
+    /**
+     * @Route("/staff/{id}", name="view each staff")
+     */
+    public function detailsAction($id)
+    {
+        $staff = $this->getDoctrine()
+            ->getRepository('App\Entity\Staff')
+            ->find($id);
+
+        return $this->render('staff/views.html.twig', [
+            'staff' => $staff
+        ]);
+    }
 }
