@@ -48,4 +48,26 @@ class StaffController extends AbstractController
 
         return $this->redirectToRoute('staff_list');
     }
+    
+    /**
+    * @Route("/staff/create", name="staff_create", methods={"GET","POST"})
+    */
+    public function createAction(Request $request)
+    {
+        $staff = new Staff();
+        $form = $this->createForm(StaffType::class, $staff);
+        
+        if ($this->saveChanges($form, $request, $staff)) {
+            $this->addFlash(
+                'notice',
+                'Staff Added'
+            );
+            
+            return $this->redirectToRoute('staff_list');
+        }
+        
+        return $this->render('staff/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
 }
