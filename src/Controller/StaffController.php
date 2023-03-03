@@ -35,4 +35,17 @@ class StaffController extends AbstractController
             'staff' => $staff
         ]);
     }
+    
+    /**
+     * @Route("/staff/delete/{id}", name="staff_delete")
+     */
+    public function deleteAction($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $staff = $entityManager->getRepository('App\Entity\Staff')->find($id);
+        $entityManager->remove($book);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('staff_list');
+    }
 }
