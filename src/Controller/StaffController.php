@@ -70,4 +70,42 @@ class StaffController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+    
+     public function saveChanges($form, $request, $staff)
+    {
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $staff->setName($request->request->get('staff')['name']);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($staff);
+            $em->flush();
+            
+            return true;
+        }
+        return false;
+    }
+    
+     /**
+    * @Route("Staff/edit/{id}", name="staff_edit")
+    */
+    public function editAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $staff = $em->getRepository('App\Entity\Staff')->find($id);
+        
+        $form = $this->createForm(BookType::class, $staff);
+        
+        if ($this->saveChanges($form, $request, $staff)) {
+            $this->addFlash(
+                'notice',
+                'staff Edited'
+            );
+            return $this->redirectToRoute('staff_list');
+        }
+        
+        return $this->render('staff/edit.html.twig', [
+            'form' => $form->createView()
+        ]);
+     }
 }
