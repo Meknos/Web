@@ -12,13 +12,13 @@ class StaffController extends AbstractController
     /**
      * @Route("/staff", name="staff")
      */
-    public function index(): Response
+    public function ShowStaffList()
     {
-            $staff = $this->getDoctrine()
-                ->getRepository('App\Entity\Staff')
-                ->findAll();
-            return $this->render('staff/index.html.twig', [
-                'staff' => $staff
-            ]);
+        $staff = $this->getDoctrine()
+            ->getRepository('App\Entity\Staff')
+            ->findAll();
+        return $this->render('staff/index.html.twig', [
+            'staff' => $staff
+        ]);
     }
 }
