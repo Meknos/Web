@@ -45,7 +45,7 @@ class StaffController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $staff = $entityManager->getRepository('App\Entity\Staff')->find($id);
-        $entityManager->remove($book);
+        $entityManager->remove($staff);
         $entityManager->flush();
 
         return $this->redirectToRoute('staff_list');
