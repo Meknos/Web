@@ -23,7 +23,7 @@ class BookController extends AbstractController
         ]);
     }
     /**
-     * @Route("/views/{id}", name="views")
+     * @Route("/book/views/{id}", name="book_views")
      */
     public function detailsAction($id)
     {
