@@ -25,7 +25,7 @@ class StaffController extends AbstractController
     }
     
     /**
-     * @Route("/staff/{id}", name="view each staff")
+     * @Route("/staff/{id}", name="view_each_staff")
      */
     public function detailsAction($id)
     {
