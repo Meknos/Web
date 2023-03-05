@@ -12,7 +12,9 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -34,7 +36,7 @@
                 <li><a href="{{ path('author_list') }}">Author</a></li> 
                 <li><a href="{{path('author_create')}}">Add Author</a></li>
                 <li><a href="{{ path('staff') }}">Staff</a></li> 
-                <li><a href="#">Add Staff</a></li>
+                <li><a href="{{ path('staff_create') }}">Add Staff</a></li> 
             </ul>
         </div><!--/.nav-collapse -->
     </div>

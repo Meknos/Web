@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <hr/>
+    <h2 class="page-header">{{ staff.id }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Staff Name: {{ staff.name }}</li>
+   
+    </ul>
+        <a href="{{ path('staff_list') }}" class="btn btn-default1">Back to Staff List</a>
+{% endblock %}
