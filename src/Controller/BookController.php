@@ -2,11 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Author;
 use App\Entity\Book;
 use App\Form\BookType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -112,18 +110,5 @@ class BookController extends AbstractController
         return $this->render('book/edit.html.twig', [
             'form' => $form->createView()
         ]);
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
